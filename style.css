@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eb75cc;
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  color: #d4f434;
+  font-size: xx-large;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.pet {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.pet:hover {
+  transform: scale(1.05);
+}
+
+#counter {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #d4f434;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  margin: 10px;
+  cursor: pointer;
+  color: rgb(3, 70, 48);
+
+}
+
+#actions {
+  margin-top: 20px;
+}
