@@ -1,7 +1,6 @@
 // ____________________________________________
 //        Object-Oriented Programming (OOP)
 // ____________________________________________
-
 class Pet {
   constructor(name, sound, image) {
     this.name = name;
@@ -29,16 +28,22 @@ let currentPet = null;
 //        Function to choose a pet
 // ____________________________________________
 function choosePet(type) {
-  if (type === 'dog') {
-    currentPet = new Pet('Dog', 'Woof! 🐶', 'https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg');
-  } else {
-    currentPet = new Pet('Cat', 'Meow! 🐱', 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg');
+  if (type === "dog") {
+    currentPet = new Pet("Dog","Woof! 🐶","https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg");
+  } else if (type === "cat") {
+    currentPet = new Pet("Cat","Meow! 🐱","https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg");
+  } else if (type === "bird") {
+    currentPet = new Pet("Bird","Chirp! 🦜","https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg");
+  } else if (type === "Fish") {
+    currentPet = new Pet("Fish","Boops! 🐠","https://images.pexels.com/photos/9004431/pexels-photo-9004431.jpeg");
   }
 
-  document.getElementById('petImage').src = currentPet.image;
-  document.getElementById('game').style.display = 'block';
-  updateCounter(0);
-  showFunActions(currentPet.name);
+  if (currentPet) {
+    document.getElementById("petImage").src = currentPet.image;
+    document.getElementById("game").style.display = "block";
+    updateCounter(0);
+    showFunActions(currentPet.name);
+  }
 }
 
 // ____________________________________________
@@ -54,23 +59,29 @@ function playWithPet() {
 //        Function to update the counter
 // ____________________________________________
 function updateCounter(count) {
-  document.getElementById('counter').innerText = `Times played: ${count}`;
+  document.getElementById("counter").innerText = `Times played: ${count}`;
 }
 
 // ____________________________________________
 //        Function + Loop: Fun pet actions
 // ____________________________________________
 function showFunActions(petName) {
-  const actions = petName === 'Dog'
-    ? ['Bark', 'Wag Tail', 'Fetch Ball']
-    : ['Meow', 'Purr', 'Chase Mouse'];
+  let actions = [];
 
-  const actionBox = document.getElementById('actions');
-  actionBox.innerHTML = '<strong>Fun Actions:</strong><br>';
+  if (petName === "Dog") {
+    actions = ["Bark", "Wag Tail", "Fetch Ball"];
+  } else if (petName === "Cat") {
+    actions = ["Meow", "Purr", "Chase Mouse"];
+  } else if (petName === "Bird") {
+    actions = ["Chirp", "Fly", "Sing Song"];
+  } else if (petName === "Fish") {
+    actions = ["Boops", "swim", "growls"];
+  }
 
-  // Loop through actions and show them
+  const actionBox = document.getElementById("actions");
+  actionBox.innerHTML = "<strong>Fun Actions:</strong><br>";
+
   for (let i = 0; i < actions.length; i++) {
-    actionBox.innerHTML += '✅ ' + actions[i] + '<br>';
+    actionBox.innerHTML += "✅ " + actions[i] + "<br>";
   }
 }
-
