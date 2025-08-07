@@ -37,7 +37,6 @@ function choosePet(type) {
   } else if (type === "Fish") {
     currentPet = new Pet("Fish","Boops! 🐠","https://images.pexels.com/photos/9004431/pexels-photo-9004431.jpeg");
   }
-
   if (currentPet) {
     document.getElementById("petImage").src = currentPet.image;
     document.getElementById("game").style.display = "block";
@@ -85,3 +84,4 @@ function showFunActions(petName) {
     actionBox.innerHTML += "✅ " + actions[i] + "<br>";
   }
 }
+
