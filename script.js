@@ -2,19 +2,23 @@
 //        Object-Oriented Programming (OOP)
 // ____________________________________________
 class Pet {
-  constructor(name, sound, image) {
+  constructor(name, soundText, image,soundUrl) {
     this.name = name;
-    this.sound = sound;
+    this.soundText = soundText;
     this.image = image;
+    this.soundUrl = new Audio(soundUrl) //audio
     this.playCount = 0;
   }
 
   speak() {
-    alert(this.sound);
+    alert(this.soundText);
+    this.soundUrl.currentTime = 0; //ensures restart each click
+    this.soundUrl.play();
   }
 
   play() {
     this.playCount++;
+    this.soundUrl.load();
     this.speak();
     updateCounter(this.playCount);
     showFunActions(this.name);
@@ -29,13 +33,13 @@ let currentPet = null;
 // ____________________________________________
 function choosePet(type) {
   if (type === "dog") {
-    currentPet = new Pet("Dog","Woof! 🐶","https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg");
+    currentPet = new Pet("Dog","Woof! 🐶","https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg",'media/dog-barking-374107.mp3');
   } else if (type === "cat") {
-    currentPet = new Pet("Cat","Meow! 🐱","https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg");
+    currentPet = new Pet("Cat","Meow! 🐱","https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg",'media/meow-sound-effect-327531.mp3');
   } else if (type === "bird") {
-    currentPet = new Pet("Bird","Chirp! 🦜","https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg");
+    currentPet = new Pet("Bird","Chirp! 🦜","https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg",'media/birds-in-pet-shop-58663.mp3');
   } else if (type === "Fish") {
-    currentPet = new Pet("Fish","Boops! 🐠","https://images.pexels.com/photos/9004431/pexels-photo-9004431.jpeg");
+    currentPet = new Pet("Fish","Boops! 🐠","https://images.pexels.com/photos/9004431/pexels-photo-9004431.jpeg",'media/tiny-splash-83778.mp3');
   }
   if (currentPet) {
     document.getElementById("petImage").src = currentPet.image;
