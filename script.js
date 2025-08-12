@@ -18,8 +18,8 @@ class Pet {
 
   play() {
     this.playCount++;
-    this.soundUrl.load();
-    this.speak();
+    this.soundUrl.load();// ensures that the sound can start without 
+    this.speak();// we are looping
     updateCounter(this.playCount);
     showFunActions(this.name);
   }
@@ -41,7 +41,7 @@ function choosePet(type) {
   } else if (type === "Fish") {
     currentPet = new Pet("Fish","Boops!🐠","https://images.pexels.com/photos/9004431/pexels-photo-9004431.jpeg",'media/tiny-splash-83778.mp3');
   }
-  
+
   if (currentPet) {
     document.getElementById("petImage").src = currentPet.image;
     document.getElementById("game").style.display = "block";
@@ -63,8 +63,9 @@ function playWithPet() {
 //        Function to update the counter
 // ____________________________________________
 function updateCounter(count) {
-  document.getElementById("counter").innerText = `Times played: ${count}`;
+  document.getElementById("counter").innerText = `Times played: ${count}`;//template literals
 }
+//it mapping-its a function inside an array
 
 // ____________________________________________
 //        Function + Loop: Fun pet actions
